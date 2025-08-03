@@ -1,7 +1,7 @@
 "use client"
 import {useAppContext} from "@/context/ContextProvider"
 import {useRouter} from "next/navigation"
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 
 const PostForm = () => {
   const router = useRouter()
@@ -27,6 +27,7 @@ const PostForm = () => {
       const data = await res.json()
     } catch (error) {}
   }
+  useEffect(() => {}, [handleSubmit])
   return (
     <form
       onSubmit={handleSubmit}
