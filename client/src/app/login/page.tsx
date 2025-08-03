@@ -41,7 +41,6 @@ const Page = () => {
       setSuccess(false)
     }
     setrespnse(data.message)
-    console.log(data)
   }
 
   return (

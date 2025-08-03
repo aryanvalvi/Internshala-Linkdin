@@ -26,10 +26,7 @@ const PostList = () => {
         })
         const data = await res.json()
         setPosts(data.post)
-        console.log(data)
-      } catch (error) {
-        console.log(error)
-      }
+      } catch (error) {}
     }
     getUser()
   }, [])

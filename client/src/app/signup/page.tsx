@@ -15,7 +15,7 @@ const Page = () => {
   })
   const [success, setSuccess] = useState<any>(false)
   const [respnse, setrespnse] = useState("")
-  console.log(userdata)
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -44,7 +44,6 @@ const Page = () => {
       setSuccess(false)
     }
     setrespnse(data.message)
-    console.log(data)
   }
   return (
     <div className="mt-30">

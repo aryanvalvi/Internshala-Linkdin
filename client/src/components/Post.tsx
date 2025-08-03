@@ -3,7 +3,7 @@ import React, {useState} from "react"
 
 const PostForm = () => {
   const [text, setText] = useState("")
-  console.log(text)
+
   // const handleChange = (e: any) => {}
 
   const handleSubmit = async (e: any) => {
@@ -18,7 +18,6 @@ const PostForm = () => {
         body: JSON.stringify({text}),
       })
       const data = await res.json()
-      console.log(data)
     } catch (error) {}
   }
   return (

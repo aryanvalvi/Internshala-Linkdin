@@ -8,7 +8,6 @@ const Navbar = () => {
   const router = useRouter()
   const {user, setUser} = useAppContext()
   const firstLetter = user?.userData.username[0].toUpperCase()
-  console.log(firstLetter)
 
   const handleLogout = async () => {
     try {
@@ -21,9 +20,7 @@ const Navbar = () => {
         setUser(null)
         router.push("/login")
       }
-    } catch (error) {
-      console.error("Logout error:", error)
-    }
+    } catch (error) {}
   }
   return (
     <nav className="bg-white shadow-md p-4">

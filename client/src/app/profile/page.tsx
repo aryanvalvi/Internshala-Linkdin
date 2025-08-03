@@ -8,8 +8,6 @@ const Page = () => {
   const [editingPostId, setEditingPostId] = useState<string | null>(null)
   const [editForm, setEditForm] = useState("")
 
-  console.log(editForm)
-
   const handleSaveEdit = async (postId: string) => {
     try {
       const res = await fetch(`http://localhost:5005/createpost/${postId}`, {
@@ -29,12 +27,8 @@ const Page = () => {
         setEditingPostId(null)
         setEditForm("")
       } else {
-        console.error("Failed to update post")
       }
-      console.log("Edit response:", await res.json())
-    } catch (error) {
-      console.error("Error updating post:", error)
-    }
+    } catch (error) {}
   }
   const handleDelete = async (postId: string) => {
     try {
@@ -48,12 +42,8 @@ const Page = () => {
           posts: prev!.posts.filter((post: any) => post._id !== postId),
         }))
       } else {
-        console.error("Failed to delete post")
       }
-      console.log("Delete response:", await res.json())
-    } catch (error) {
-      console.error("Error deleting post:", error)
-    }
+    } catch (error) {}
   }
   useEffect(() => {
     const getdata = async () => {
@@ -63,12 +53,10 @@ const Page = () => {
           credentials: "include",
         })
         const data = await res.json()
-        console.log(data)
+
         setData(data) // Store the fetched data in state
         setEditForm(data?.posts.map((e: any) => e.content))
-      } catch (error) {
-        console.error("Error fetching profile:", error)
-      }
+      } catch (error) {}
     }
     getdata()
   }, [])
