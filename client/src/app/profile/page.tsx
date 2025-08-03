@@ -1,8 +1,13 @@
 "use client"
 
+import {useAppContext} from "@/context/ContextProvider"
+import {useRouter} from "next/navigation"
+
 import React, {useEffect, useState} from "react"
 
 const Page = () => {
+  const router = useRouter()
+  const {user, setUser} = useAppContext()
   const [data, setData] = useState<{user: any; posts: any[]} | null>(null)
   const [editToggle, setEditToggle] = useState(false)
   const [editingPostId, setEditingPostId] = useState<string | null>(null)
@@ -33,6 +38,7 @@ const Page = () => {
       }
     } catch (error) {}
   }
+
   const handleDelete = async (postId: string) => {
     try {
       const res = await fetch(
@@ -65,6 +71,11 @@ const Page = () => {
       } catch (error) {}
     }
     getdata()
+  }, [])
+  useEffect(() => {
+    if (!user) {
+      router.push("/signup")
+    }
   }, [])
 
   return (

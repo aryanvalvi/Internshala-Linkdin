@@ -116,6 +116,12 @@ const Page = () => {
         >
           Sign Up
         </button>
+        <button
+          onClick={() => router.push("/login")}
+          className="w-full bg-white-500 text-black px-4 py-2 rounded-md"
+        >
+          Already Have a Account?
+        </button>
       </form>
     </div>
   )

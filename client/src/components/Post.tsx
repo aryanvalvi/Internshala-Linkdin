@@ -1,12 +1,19 @@
 "use client"
+import {useAppContext} from "@/context/ContextProvider"
+import {useRouter} from "next/navigation"
 import React, {useState} from "react"
 
 const PostForm = () => {
+  const router = useRouter()
+  const {user, setUser} = useAppContext()
   const [text, setText] = useState("")
 
   // const handleChange = (e: any) => {}
 
   const handleSubmit = async (e: any) => {
+    if (!user) {
+      alert("Please login to Post"), router.push("/signup")
+    }
     e.preventDefault()
     try {
       const res = await fetch("http://144.91.104.106:5005/createpost", {
