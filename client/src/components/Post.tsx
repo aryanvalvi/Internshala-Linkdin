@@ -1,22 +1,23 @@
 "use client"
+
 import {useAppContext} from "@/context/ContextProvider"
 import {useRouter} from "next/navigation"
 import React, {useEffect, useState} from "react"
 
 const PostForm = () => {
   const router = useRouter()
-  const {user, setUser} = useAppContext()
+  const {user, setUser, setToggle} = useAppContext()
   const [text, setText] = useState("")
-
-  // const handleChange = (e: any) => {}
 
   const handleSubmit = async (e: any) => {
     if (!user) {
-      alert("Please login to Post"), router.push("/signup")
+      alert("Please login to Post")
+      router.push("/signup")
+      return
     }
     e.preventDefault()
     try {
-      const res = await fetch("http://144.91.104.106:5005/createpost", {
+      const res = await fetch("http://144.91.104.106/createpost", {
         method: "POST",
         credentials: "include",
         headers: {
@@ -25,9 +26,16 @@ const PostForm = () => {
         body: JSON.stringify({text}),
       })
       const data = await res.json()
-    } catch (error) {}
+      if (res.ok) {
+        router.refresh()
+        setText("")
+        setToggle(true)
+      }
+    } catch (error) {
+      console.error("Error posting:", error)
+    }
   }
-  useEffect(() => {}, [handleSubmit])
+
   return (
     <form
       onSubmit={handleSubmit}

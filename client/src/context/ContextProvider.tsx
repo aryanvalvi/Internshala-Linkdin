@@ -13,12 +13,13 @@ export const UserContextProvider = ({
   children: React.ReactNode
 }) => {
   const [user, setUser] = useState(null)
+  const [toggle, setToggle] = useState(null)
   console.log(user)
 
   useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await fetch("http://144.91.104.106:5005/checkUser", {
+        const res = await fetch("http://144.91.104.106/checkUser", {
           method: "GET",
           credentials: "include",
         })
@@ -35,7 +36,7 @@ export const UserContextProvider = ({
   }, [])
 
   return (
-    <UserContext.Provider value={{user, setUser}}>
+    <UserContext.Provider value={{user, setUser, toggle, setToggle}}>
       {children}
     </UserContext.Provider>
   )

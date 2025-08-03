@@ -8,7 +8,8 @@ const Navbar = () => {
   const router = useRouter()
   const {user, setUser} = useAppContext()
   console.log(user)
-  const firstLetter = user?.username[0].toUpperCase() || "User"
+  // const firstLetter = user?.username[0].toUpperCase() || "User"
+  const firstLetter = "User"
 
   const handleLogout = async () => {
     try {

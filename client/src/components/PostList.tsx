@@ -1,22 +1,10 @@
 "use client"
+import {useAppContext} from "@/context/ContextProvider"
 import React, {useEffect, useState} from "react"
 
-// const PostCard = ({post}: {post: any}) => (
-//   <div className="bg-white p-4 rounded-lg shadow-md mb-4">
-//     <div className="flex items-center justify-between">
-//       <h3 className="text-lg font-semibold text-gray-800">
-//         {post.author.name}
-//       </h3>
-//       <span className="text-sm text-gray-500">
-//         {new Date(post.createdAt).toLocaleString()}
-//       </span>
-//     </div>
-//     <p className="mt-2 text-gray-700">{post.content}</p>
-//   </div>
-// )
 const PostList = () => {
   const [posts, setPosts] = useState<any>(null)
-
+  const {toggle} = useAppContext()
   useEffect(() => {
     const getUser = async () => {
       try {
@@ -29,7 +17,7 @@ const PostList = () => {
       } catch (error) {}
     }
     getUser()
-  }, [])
+  }, [toggle])
 
   return (
     <div className="space-y-4">

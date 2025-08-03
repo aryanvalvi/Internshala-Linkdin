@@ -9,6 +9,7 @@ const Page = () => {
   const router = useRouter()
   const {user, setUser} = useAppContext()
   const [data, setData] = useState<{user: any; posts: any[]} | null>(null)
+  console.log(data)
   const [editToggle, setEditToggle] = useState(false)
   const [editingPostId, setEditingPostId] = useState<string | null>(null)
   const [editForm, setEditForm] = useState("")
@@ -90,16 +91,16 @@ const Page = () => {
               </h2>
               <div className="space-y-2">
                 <p className="text-gray-600">
-                  <span className="font-medium">Name:</span> {data.user.name}
+                  <span className="font-medium">Name:</span> {data.user?.name}
                 </p>
                 <p className="text-gray-600">
-                  <span className="font-medium">Email:</span> {data.user.email}
+                  <span className="font-medium">Email:</span> {data.user?.email}
                 </p>
                 <p className="text-gray-600">
-                  <span className="font-medium">Bio:</span> {data.user.bio}
+                  <span className="font-medium">Bio:</span> {data.user?.bio}
                 </p>
                 <p className="text-gray-600">
-                  <span className="font-medium">ID:</span> {data.user._id}
+                  <span className="font-medium">ID:</span> {data.user?._id}
                 </p>
               </div>
             </div>
