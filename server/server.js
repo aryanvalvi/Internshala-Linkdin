@@ -9,6 +9,7 @@ const corsOptions = {
   origin: [
     "http://localhost:3000",
     "https://internshala-linkdin-cnl4.vercel.app/",
+    "http://144.91.104.106:3001",
   ],
   credentials: true,
 }
