@@ -9,7 +9,7 @@ const PostForm = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault()
     try {
-      const res = await fetch("http://localhost:5005/createpost", {
+      const res = await fetch("http://144.91.104.106:5005/createpost", {
         method: "POST",
         credentials: "include",
         headers: {

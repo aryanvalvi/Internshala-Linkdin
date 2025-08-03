@@ -10,12 +10,15 @@ const Page = () => {
 
   const handleSaveEdit = async (postId: string) => {
     try {
-      const res = await fetch(`http://localhost:5005/createpost/${postId}`, {
-        method: "PUT",
-        headers: {"Content-Type": "application/json"},
-        credentials: "include",
-        body: JSON.stringify({content: editForm}),
-      })
+      const res = await fetch(
+        `http://144.91.104.106:5005/createpost/${postId}`,
+        {
+          method: "PUT",
+          headers: {"Content-Type": "application/json"},
+          credentials: "include",
+          body: JSON.stringify({content: editForm}),
+        }
+      )
       if (res.ok) {
         setData((prev: any) => ({
           ...prev,
@@ -32,10 +35,13 @@ const Page = () => {
   }
   const handleDelete = async (postId: string) => {
     try {
-      const res = await fetch(`http://localhost:5005/createpost/${postId}`, {
-        method: "DELETE",
-        credentials: "include",
-      })
+      const res = await fetch(
+        `http://144.91.104.106:5005/createpost/${postId}`,
+        {
+          method: "DELETE",
+          credentials: "include",
+        }
+      )
       if (res.ok) {
         setData((prev: any) => ({
           ...prev,
@@ -48,7 +54,7 @@ const Page = () => {
   useEffect(() => {
     const getdata = async () => {
       try {
-        const res = await fetch("http://localhost:5005/profile", {
+        const res = await fetch("http://144.91.104.106:5005/profile", {
           method: "GET",
           credentials: "include",
         })

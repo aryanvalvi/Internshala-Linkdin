@@ -22,7 +22,7 @@ const Page = () => {
   }
   const handleSubmit = async (e: any) => {
     e.preventDefault()
-    const res = await fetch("http://localhost:5005/login", {
+    const res = await fetch("http://144.91.104.106:5005/login", {
       method: "post",
       credentials: "include",
       headers: {
