@@ -1,0 +1,59 @@
+"use client"
+import React, {useEffect, useState} from "react"
+
+// const PostCard = ({post}: {post: any}) => (
+//   <div className="bg-white p-4 rounded-lg shadow-md mb-4">
+//     <div className="flex items-center justify-between">
+//       <h3 className="text-lg font-semibold text-gray-800">
+//         {post.author.name}
+//       </h3>
+//       <span className="text-sm text-gray-500">
+//         {new Date(post.createdAt).toLocaleString()}
+//       </span>
+//     </div>
+//     <p className="mt-2 text-gray-700">{post.content}</p>
+//   </div>
+// )
+const PostList = () => {
+  const [posts, setPosts] = useState<any>(null)
+
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const res = await fetch("http://localhost:5005/getpost", {
+          method: "GET",
+          credentials: "include",
+        })
+        const data = await res.json()
+        setPosts(data.post)
+        console.log(data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getUser()
+  }, [])
+
+  return (
+    <div className="space-y-4">
+      {posts?.map((post: any) => (
+        <div className="bg-white p-4 rounded-lg shadow-md mb-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-lg font-semibold text-gray-800">
+                {post.author.name}
+              </h3>
+              <p className="text-[14px]">{post.author.email}</p>
+            </div>
+            <span className="text-sm text-gray-500">
+              {new Date(post.createdAt).toLocaleString()}
+            </span>
+          </div>
+          <p className="mt-2 text-gray-700">{post.content}</p>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+export default PostList
