@@ -18,14 +18,14 @@ export const UserContextProvider = ({
   useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await fetch("http://144.91.104.106/checkUser", {
+        const res = await fetch("http://144.91.104.106:5005/checkUser", {
           method: "GET",
           credentials: "include",
         })
         const data = await res.json()
         console.log(data)
         if (data.user) {
-          setUser(data.user)
+          setUser(data.user.userData)
         }
       } catch (error) {
         console.log("Not logged in")

@@ -7,7 +7,8 @@ import React from "react"
 const Navbar = () => {
   const router = useRouter()
   const {user, setUser} = useAppContext()
-  const firstLetter = user?.userData.username[0].toUpperCase()
+  console.log(user)
+  const firstLetter = user?.username[0].toUpperCase() || "User"
 
   const handleLogout = async () => {
     try {
