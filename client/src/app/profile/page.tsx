@@ -17,7 +17,7 @@ const Page = () => {
   const handleSaveEdit = async (postId: string) => {
     try {
       const res = await fetch(
-        `http://144.91.104.106:5005/createpost/${postId}`,
+        `http://taskapi.uiuxyn.xyz:5005/createpost/${postId}`,
         {
           method: "PUT",
           headers: {"Content-Type": "application/json"},
@@ -43,7 +43,7 @@ const Page = () => {
   const handleDelete = async (postId: string) => {
     try {
       const res = await fetch(
-        `http://144.91.104.106:5005/createpost/${postId}`,
+        `http://taskapi.uiuxyn.xyz:5005/createpost/${postId}`,
         {
           method: "DELETE",
           credentials: "include",
@@ -61,7 +61,7 @@ const Page = () => {
   useEffect(() => {
     const getdata = async () => {
       try {
-        const res = await fetch("http://144.91.104.106:5005/profile", {
+        const res = await fetch("http://taskapi.uiuxyn.xyz:5005/profile", {
           method: "GET",
           credentials: "include",
         })

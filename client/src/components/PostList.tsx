@@ -8,7 +8,7 @@ const PostList = () => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await fetch("http://144.91.104.106:5005/getpost", {
+        const res = await fetch("http://taskapi.uiuxyn.xyz:5005/getpost", {
           method: "GET",
           credentials: "include",
         })

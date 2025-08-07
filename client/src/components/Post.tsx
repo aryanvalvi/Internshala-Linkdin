@@ -17,7 +17,7 @@ const PostForm = () => {
     }
     e.preventDefault()
     try {
-      const res = await fetch("http://144.91.104.106/createpost", {
+      const res = await fetch("http://taskapi.uiuxyn.xyz:5005/createpost", {
         method: "POST",
         credentials: "include",
         headers: {
