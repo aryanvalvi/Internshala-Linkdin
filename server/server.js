@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser")
 const router = require("./route/route")
 const mongoose = require("mongoose")
 const cors = require("cors")
+require("dotenv").config()
 
 const corsOptions = {
   origin: [
