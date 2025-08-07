@@ -13,7 +13,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch("https://taskapi.uiuxyn.xyz:5005/logout", {
+      const res = await fetch("https://taskapi.uiuxyn.xyz/logout", {
         method: "GET",
         credentials: "include",
       })

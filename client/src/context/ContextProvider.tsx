@@ -19,7 +19,7 @@ export const UserContextProvider = ({
   useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await fetch("https://taskapi.uiuxyn.xyz:5005/checkUser", {
+        const res = await fetch("https://taskapi.uiuxyn.xyz/checkUser", {
           method: "GET",
           credentials: "include",
         })

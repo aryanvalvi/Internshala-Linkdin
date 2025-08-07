@@ -8,7 +8,7 @@ const PostList = () => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await fetch("https://taskapi.uiuxyn.xyz:5005/getpost", {
+        const res = await fetch("https://taskapi.uiuxyn.xyz/getpost", {
           method: "GET",
           credentials: "include",
         })

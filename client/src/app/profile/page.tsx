@@ -17,7 +17,7 @@ const Page = () => {
   const handleSaveEdit = async (postId: string) => {
     try {
       const res = await fetch(
-        `https://taskapi.uiuxyn.xyz:5005/createpost/${postId}`,
+        `https://taskapi.uiuxyn.xyz/createpost/${postId}`,
         {
           method: "PUT",
           headers: {"Content-Type": "application/json"},
@@ -43,7 +43,7 @@ const Page = () => {
   const handleDelete = async (postId: string) => {
     try {
       const res = await fetch(
-        `https://taskapi.uiuxyn.xyz:5005/createpost/${postId}`,
+        `https://taskapi.uiuxyn.xyz/createpost/${postId}`,
         {
           method: "DELETE",
           credentials: "include",
@@ -61,7 +61,7 @@ const Page = () => {
   useEffect(() => {
     const getdata = async () => {
       try {
-        const res = await fetch("https://taskapi.uiuxyn.xyz:5005/profile", {
+        const res = await fetch("https://taskapi.uiuxyn.xyz/profile", {
           method: "GET",
           credentials: "include",
         })

@@ -22,7 +22,7 @@ const Page = () => {
   }
   const handleSubmit = async (e: any) => {
     e.preventDefault()
-    const res = await fetch("https://taskapi.uiuxyn.xyz:5005/login", {
+    const res = await fetch("https://taskapi.uiuxyn.xyz/login", {
       method: "post",
       credentials: "include",
       headers: {
