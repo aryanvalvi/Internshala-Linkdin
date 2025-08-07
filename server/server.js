@@ -10,6 +10,7 @@ const corsOptions = {
     "http://localhost:3001",
     "https://internshala-linkdin-cnl4.vercel.app/",
     "http://144.91.104.106:3001",
+    process.env.frontendurl,
   ],
   credentials: true,
 }
