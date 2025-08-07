@@ -26,7 +26,7 @@ const Page = () => {
   }
   const handleSubmit = async (e: any) => {
     e.preventDefault()
-    const res = await fetch("http://taskapi.uiuxyn.xyz:5005/register", {
+    const res = await fetch("https://taskapi.uiuxyn.xyz:5005/register", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
